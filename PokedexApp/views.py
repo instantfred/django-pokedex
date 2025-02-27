@@ -33,7 +33,8 @@ def index(request):
                 "weight": str(weight_rounded)+ " kg",
                 "sprite": str(list_of_data['sprites']['front_default']),
                 "sprite_shiny": str(list_of_data['sprites']['front_shiny']),
-                "types": pokemon_types
+                "types": pokemon_types,
+                "cry_url": str(list_of_data['cries']['legacy']),
             }
 
             print(data)

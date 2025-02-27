@@ -14,12 +14,13 @@
 {% if number and name %}
     <div class="card shadow-sm mb-4">
         <div class="d-flex justify-content-center p-3">
-            <div class="p-2">
-            <img src="{{ sprite }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
+            <div class="p-2" id="sprite-normal">
+                <img src="{{ sprite }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
             </div>
-            <div class="p-2">
-            <img src="{{ sprite_shiny }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
+            <div class="p-2" id="sprite-shiny">
+                <img src="{{ sprite_shiny }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
             </div>
+            <audio id="pokemon-cry" src="{{ cry_url }}" type="audio/ogg"></audio>
         </div>
         <div class="card-body text-center">
             <h5 class="card-title">#{{ number }} - {{ name }}</h5>
@@ -35,4 +36,20 @@
         </div>
     {% endif %}
 {% endif %}
+<!-- Add event listeners in JavaScript -->
+<script>
+    function playAudio(cryUrl) {
+        var audio = new Audio(cryUrl);
+        audio.play();
+    }
+
+    // Add event listeners to the sprites
+    document.getElementById('sprite-normal').addEventListener('click', function () {
+        playAudio('{{ cry_url }}');
+    });
+
+    document.getElementById('sprite-shiny').addEventListener('click', function () {
+        playAudio('{{ cry_url }}');
+    });
+</script>
 {% endblock %}
