@@ -43,4 +43,10 @@ def index(request):
         return render(request, "main/index.html", data)
     except HTTPError as e:
         if e.code == 404:
+            data = {
+                "error": "Pokemon not found. Please try again.",
+                "name": pokemon
+            }
+            return render(request, "main/index.html", data)
+        else:
             return render(request, "main/404.html")

@@ -28,5 +28,11 @@
             <p class="card-text"><strong>Weight:</strong> {{ weight }}</p>
         </div>
     </div>
+ {% else %}
+    {% if name and error %}
+        <div class="alert alert-danger" role="alert">
+            Pokémon "{{ name }}" not found.
+        </div>
+    {% endif %}
 {% endif %}
 {% endblock %}
