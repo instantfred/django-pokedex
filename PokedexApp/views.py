@@ -22,12 +22,17 @@ def index(request):
             weight_obtained = (float(list_of_data['weight']) * 0.1)
             weight_rounded = round(weight_obtained, 2)
 
+            pokemon_types = []
+            for type in list_of_data['types']:
+                pokemon_types.append(type['type']['name'].capitalize())
+
             data = {
                 "number": str(list_of_data['id']),
                 "name": str(list_of_data['name']).capitalize(),
                 "height": str(height_rounded)+ " m",
                 "weight": str(weight_rounded)+ " kg",
                 "sprite": str(list_of_data['sprites']['front_default']),
+                "types": pokemon_types
             }
 
             print(data)

@@ -1,55 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-    <!-- The load static is necessary to load images, css and JS -->
-{% load static %}
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}" crossorigin="anonymous"/>
-    <link rel="icon" href="{% static 'img/poke-icon.ico' %}">
-    <title>Pokedex | Django</title>
-</head>
-<body>
-    <h2>Pokedex on Django Framework</h5> 
-    <img src="{% static 'img/pokedex-image.png' %}" class="image" style="width:100px;">
-    
-    <form method="post">
-        <!-- Cross-site request forgery Protection-->
-        {% csrf_token %}
-        
-        <!-- Searchbar -->
-        <input type="text" name="pokemon" placeholder="Search Your Pokemon...">
-        <button type="submit">Search</button>
-    </form>
-    <div>
-        <!-- Rendering everything requested to the API -->
-        <!-- First we validate the data requested -->
-        {% if number and name %}
-            <h3>
-                Number: {{number}}
-            </h3>
-            <h3>
-                Name: {{name}}
-            </h3>
-            <h3>
-                Height: {{height}}
-            </h3>
-            <h3>
-                Weight: {{weight}}
-            </h3>
-            <h3>
-                Default sprite: 
-            </h3>
-            <img src="{{sprite}}" alt="{{name}} sprite" style="width:70px">
-        {% else %}
-        <div>
-            <h3>
-                Search by Pokemon name or Pokedex ID.
-            </h3>
+{% block content %}
+{% load static %}
+<!-- <img src="{% static 'img/pokedex-image.png' %}" class="image" style="width:100px;"> -->
+<!-- Search Bar -->
+<form class="d-flex mb-4" method="POST" action="{% url 'index' %}">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" name="pokemon" placeholder="Search Pokémon" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+
+<!-- Pokémon Cards -->
+{% if number and name %}
+    <div class="card">
+        <img src="{{ sprite }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
+        <div class="card-body">
+            <h5 class="card-title">#{{ number }} - {{ name }}</h5>
+            <p class="card-text">Types: {{ types }}</p>
         </div>
-        {% endif %}
     </div>
-</body>
-</html>
+{% endif %}
+{% endblock %}
