@@ -8,12 +8,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" crossorigin="anonymous"/>
-    <link rel="icon" href="{% static 'img/pokeball-icon.ico' %}">
+    <link rel="icon" href="{% static 'img/poke-icon.ico' %}">
     <title>Pokedex | Django</title>
 </head>
 <body>
-    <h2>Using Django Framework</h5> 
-    <!-- Inserting the main image -->
+    <h2>Pokedex on Django Framework</h5> 
     <img src="{% static 'img/pokedex-image.png' %}" class="image" style="width:100px;">
     
     <form method="post">
@@ -47,7 +46,7 @@
         {% else %}
         <div>
             <h3>
-                Escribe el nombre o ID de tu pokemon.
+                Search by Pokemon name or Pokedex ID.
             </h3>
         </div>
         {% endif %}

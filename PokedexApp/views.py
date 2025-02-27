@@ -6,7 +6,6 @@ from urllib.error import HTTPError
 
 
 def index(request):
-
     try:
         if request.method == 'POST':
             pokemon = request.POST['pokemon'].lower()
