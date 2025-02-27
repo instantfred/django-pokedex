@@ -12,11 +12,20 @@
 
 <!-- Pokémon Cards -->
 {% if number and name %}
-    <div class="card">
-        <img src="{{ sprite }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
-        <div class="card-body">
+    <div class="card shadow-sm mb-4">
+        <div class="d-flex justify-content-center p-3">
+            <div class="p-2">
+            <img src="{{ sprite }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
+            </div>
+            <div class="p-2">
+            <img src="{{ sprite_shiny }}" class="card-img-top sprite-img" style="width: 200px;" alt="{{ name }}">
+            </div>
+        </div>
+        <div class="card-body text-center">
             <h5 class="card-title">#{{ number }} - {{ name }}</h5>
-            <p class="card-text">Types: {{ types }}</p>
+            <p class="card-text"><strong>Types:</strong> {{ types }}</p>
+            <p class="card-text"><strong>Height:</strong> {{ height }}</p>
+            <p class="card-text"><strong>Weight:</strong> {{ weight }}</p>
         </div>
     </div>
 {% endif %}

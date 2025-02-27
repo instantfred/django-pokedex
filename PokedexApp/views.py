@@ -32,6 +32,7 @@ def index(request):
                 "height": str(height_rounded)+ " m",
                 "weight": str(weight_rounded)+ " kg",
                 "sprite": str(list_of_data['sprites']['front_default']),
+                "sprite_shiny": str(list_of_data['sprites']['front_shiny']),
                 "types": pokemon_types
             }
 
