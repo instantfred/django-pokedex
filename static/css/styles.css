@@ -1,11 +1,24 @@
 body {
   background-color: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+  background-color: #920000;
+}
+
+.navbar-brand {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.5rem;
+  color: #ffffff !important;
 }
 
 .card {
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #8b3c3c;
+  border: 1px solid #dddddd;
 }
 
 .card:hover {
@@ -15,6 +28,11 @@ body {
 
 .card-title {
   font-size: 1.25rem;
+  color: #920000;
+}
+
+.card-text {
+  color: #333333;
 }
 
 .sprite-img {
@@ -25,9 +43,16 @@ body {
 .btn-outline-success {
   border-radius: 50px;
   transition: background-color 0.3s, color 0.3s;
+  border-color: #920000;
+  color: #920000;
 }
 
 .btn-outline-success:hover {
-  background-color: #28a745;
-  color: #fff;
+  background-color: #920000;
+  color: #ffffff;
+}
+
+footer {
+  background-color: #333333;
+  color: #ffffff;
 }
